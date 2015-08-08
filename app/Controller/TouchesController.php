@@ -7,6 +7,15 @@ class TouchesController extends AppController {
 
   public $uses = array('Touch','Edison');
 
+  public function beforeFilter(){
+    parent::beforeFilter();
+
+
+      $this->Security->csrfCheck = false;
+      $this->Security->validatePost = false;
+    
+	}
+
 
   // (GET) /touchs.format
   public function index() {
