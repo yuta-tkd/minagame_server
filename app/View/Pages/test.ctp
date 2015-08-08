@@ -191,9 +191,6 @@ $('#photo-submit').on('click',function(){
 
 
 });
-
-
-});
 </script>
 
 <form id="photo_form" action="/photos.json" method="post" enctype=" multipart/form-data">
