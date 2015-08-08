@@ -3,25 +3,25 @@
 
 jQuery(function ($) {
 //Edison
-$.ajax({
-  url: '/edisons/kame01.json',
-  type: "GET",
-  // data: {'edisonId':'kame01'},
-  // dataType : "json",
-  //processData: false,
-  //contentType: false,
-  success : function(response, dataType){
-      console.log('Ajax: ' + dataType);
-      console.log(response);
-      $('#content').append('<p>Edison Ajax(GET)成功</p>');
-  },
-  error: function(XMLHttpRequest, textStatus, errorThrown){
-      console.log('Ajax: Error!');
-      console.log(XMLHttpRequest);
-      console.log(textStatus);
-      console.log(errorThrown);
-  }
-});
+// $.ajax({
+//   url: '/edisons/kame01.json',
+//   type: "GET",
+//   // data: {'edisonId':'kame01'},
+//   // dataType : "json",
+//   //processData: false,
+//   //contentType: false,
+//   success : function(response, dataType){
+//       console.log('Ajax: ' + dataType);
+//       console.log(response);
+//       $('#content').append('<p>Edison Ajax(GET)成功</p>');
+//   },
+//   error: function(XMLHttpRequest, textStatus, errorThrown){
+//       console.log('Ajax: Error!');
+//       console.log(XMLHttpRequest);
+//       console.log(textStatus);
+//       console.log(errorThrown);
+//   }
+// });
 
 $.ajax({
   url: '/edisons.json',
@@ -43,7 +43,7 @@ $.ajax({
       console.log(textStatus);
       console.log(errorThrown);
   }
-});
+});/*
 
 //Touch
 $.ajax({
@@ -187,7 +187,7 @@ $('#photo-submit').on('click',function(){
   });
 
   return false;
-});
+});*/
 
 
 });
