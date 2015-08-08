@@ -53,6 +53,7 @@ class TouchesController extends AppController {
       }
     }
 
+
     $this->set(compact('message'));
     $this->set(compact('touch'));
     $this->set('_serialize', array('message','touch'));
