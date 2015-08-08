@@ -23,27 +23,27 @@ $.ajax({
   }
 });
 
-// $.ajax({
-//   url: '/edisons.json',
-//   type: "POST",
-//   data: {
-//     name: 'kame02'
-//   },
-//   dataType : "json",
-//   //processData: false,
-//   //contentType: false,
-//   success : function(response, dataType){
-//       console.log('Ajax: ' + dataType);
-//       console.log(response);
-//       $('#content').append('<p>Edison Ajax(POST)成功</p>');
-//   },
-//   error: function(XMLHttpRequest, textStatus, errorThrown){
-//       console.log('Ajax: Error!');
-//       console.log(XMLHttpRequest);
-//       console.log(textStatus);
-//       console.log(errorThrown);
-//   }
-// });
+$.ajax({
+  url: '/edisons.json',
+  type: "POST",
+  data: {
+    name: 'kame02'
+  },
+  dataType : "json",
+  //processData: false,
+  //contentType: false,
+  success : function(response, dataType){
+      console.log('Ajax: ' + dataType);
+      console.log(response);
+      $('#content').append('<p>Edison Ajax(POST)成功</p>');
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown){
+      console.log('Ajax: Error!');
+      console.log(XMLHttpRequest);
+      console.log(textStatus);
+      console.log(errorThrown);
+  }
+});
 
 //Touch
 $.ajax({

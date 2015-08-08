@@ -7,14 +7,6 @@ class TouchesController extends AppController {
 
   public $uses = array('Touch','Edison');
 
-  public function beforeFilter(){
-    parent::beforeFilter();
-
-
-      $this->Security->csrfCheck = false;
-      $this->Security->validatePost = false;
-    
-	}
 
 
   // (GET) /touchs.format
@@ -60,6 +52,7 @@ class TouchesController extends AppController {
         }
       }
     }
+
 
     $this->set(compact('message'));
     $this->set(compact('touch'));
