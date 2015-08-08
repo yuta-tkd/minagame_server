@@ -19,6 +19,22 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
+ //RESTful
+ Router::mapResources('edisons', array('id'=>'[0-9A-Za-z]+'));
+ Router::mapResources('touches', array('id'=>'[0-9A-Za-z]+'));
+ Router::mapResources('temperatures', array('id'=>'[0-9A-Za-z]+'));
+ Router::mapResources('photos', array('id'=>'[0-9A-Za-z]+'));
+ Router::parseExtensions('json', 'xml');
+
+
+
+ Router::connect('/', array(
+     'controller' => 'pages',
+     'action' =>'test'
+ ));
+
+
 /**
  * Here, we are connecting '/' (base path) to controller called 'Pages',
  * its action called 'display', and we pass a param to select the view file
