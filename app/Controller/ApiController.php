@@ -28,6 +28,12 @@ class ApiController extends AppController {
     $startTime = $param['startTime'];
     $duration = $param['duration'];
 
+    //log
+    $this->log('allSensor',LOG_DEBUG);
+    $this->log($edisonName,LOG_DEBUG);
+    $this->log($startTime,LOG_DEBUG);
+    $this->log($duration,LOG_DEBUG);
+
     $edisonId = $this->Edison->findByName($edisonName)['Edison']['id'];
     if($edisonId){
 
@@ -35,8 +41,8 @@ class ApiController extends AppController {
       $dateTime->modify('-10 minutes');
       $endTime = $dateTime->format('Y-m-d H:i:s');
 
-      // $this->log($startTime,LOG_DEBUG);
-      // $this->log($endTime,LOG_DEBUG);
+      //log
+      $this->log($endTime,LOG_DEBUG);
 
       $conditions = array(
         'time >=' => $endTime,
