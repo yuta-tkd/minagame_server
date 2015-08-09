@@ -3,17 +3,9 @@ App::uses('AppController', 'Controller');
 
 class PhotosController extends AppController {
 
-  public $components = array('RequestHandler','Security');
+  public $components = array('RequestHandler');
 
   public $uses = array('Photo','Edison');
-
-  public function beforeFilter(){
-    parent::beforeFilter();
-
-    $this->Security->csrfCheck = false;
-    $this->Security->validatePost = false;
-
-	}
 
 
   // (GET) /photos.format
@@ -52,6 +44,14 @@ class PhotosController extends AppController {
     if(!empty($data['edisonName'])){
       $edisonId = $this->Edison->findByName($edisonName)['Edison']['id'];
       if($edisonId){
+
+        $file = $_FILES['photo'];
+        if(!empty($file) && $file['error'] == 0){
+          $save_path = '/app/webroot/img/edison/photos';
+          $file_name =  md5(uniqid(rand(), true)).'';
+          $path = ROOT . $save_path .$file_name;
+        }
+
         $this->Photo->create();
         $photo = $this->Photo->save(array(
           'edison_id' => $edisonId,

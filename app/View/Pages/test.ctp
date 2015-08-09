@@ -8,11 +8,12 @@ jQuery(function ($) {
 $.ajax({
   url: '/api/login',
   type: "POST",
-  data: {'edisonName':'kame01'},
+  data: {'edisonName':'kame01aa'},
   dataType : "json",
   //processData: false,
   //contentType: false,
   success : function(response, dataType){
+      console.log('Login');
       console.log('Ajax: ' + dataType);
       console.log(response);
       $('#content').append('<p>Login Ajax(POST)成功</p>');

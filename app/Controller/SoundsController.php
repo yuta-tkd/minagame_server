@@ -36,6 +36,7 @@ class SoundsController extends AppController {
     $edisonName = $data['edisonName'];
 
     //Log
+    $this->log($_FILES,LOG_DEBUG);
     $this->log($data,LOG_DEBUG);
 
     $edison = null;
