@@ -166,13 +166,12 @@ $('#photo-submit').on('click',function(){
     type: "POST",
     data: {
       edisonName: 'kame01',
-      //photo: 28,
+      photo: 1,
       time: '2015-08-08 13:39:30',
-      formData: fd
     },
     dataType : "json",
-    processData: false,
-    contentType: false,
+    // processData: false,
+    // contentType: false,
     success : function(response, dataType){
         console.log('Ajax: ' + dataType);
         console.log(response);
@@ -240,7 +239,14 @@ $.ajax({
 });
 </script>
 
-<form id="photo_form" action="/photos.json" method="post" enctype=" multipart/form-data">
+<form id="photo_form" action="/photos.json" method="post" enctype="multipart/form-data">
   <input type="file" name="datafile">
+  <input id="photo-submit" type="submit" value="送信">
+</form>
+
+<form action="/photos.json" method="post" enctype="multipart/form-data">
+  <input type="file" name="photo">
+  <input type="hidden" name="edisonName" value="kame01">
+  <input type="hidden" name="time" value="2015-08-08 13:39:30">
   <input id="photo-submit" type="submit" value="送信">
 </form>

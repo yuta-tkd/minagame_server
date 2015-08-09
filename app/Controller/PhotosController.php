@@ -3,9 +3,17 @@ App::uses('AppController', 'Controller');
 
 class PhotosController extends AppController {
 
-  public $components = array('RequestHandler');
+  public $components = array('RequestHandler','Security');
 
   public $uses = array('Photo','Edison');
+
+  public function beforeFilter(){
+    parent::beforeFilter();
+
+    $this->Security->csrfCheck = false;
+    $this->Security->validatePost = false;
+
+	}
 
 
   // (GET) /photos.format
@@ -36,6 +44,7 @@ class PhotosController extends AppController {
     $edisonName = $data['edisonName'];
 
     //Log
+    $this->log($this->data,LOG_DEBUG);
     $this->log($data,LOG_DEBUG);
 
     $edison = null;
