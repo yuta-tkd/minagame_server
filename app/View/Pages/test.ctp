@@ -3,7 +3,7 @@
 
 jQuery(function ($) {
 
-
+/*
 //Login
 $.ajax({
   url: '/api/login',
@@ -285,7 +285,7 @@ $.ajax({
 // });
 
 
-
+*/
 });
 </script>
 
