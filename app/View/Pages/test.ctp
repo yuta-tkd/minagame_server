@@ -215,12 +215,12 @@ $('#photo-submit').on('click',function(){
     type: "POST",
     data: {
       edisonName: 'kame01',
-      photo: 1,
+      photo: fd,
       time: '2015-08-08 13:39:30',
     },
     dataType : "json",
-    // processData: false,
-    // contentType: false,
+    processData: false,
+    contentType: false,
     success : function(response, dataType){
         console.log('Ajax: ' + dataType);
         console.log(response);
