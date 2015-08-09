@@ -25,6 +25,7 @@
  Router::mapResources('touches', array('id'=>'[0-9A-Za-z]+'));
  Router::mapResources('temperatures', array('id'=>'[0-9A-Za-z]+'));
  Router::mapResources('photos', array('id'=>'[0-9A-Za-z]+'));
+ Router::mapResources('sounds', array('id'=>'[0-9A-Za-z]+'));
  Router::parseExtensions('json', 'xml');
 
 

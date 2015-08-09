@@ -7,7 +7,7 @@ App::uses('AppModel', 'Model');
 class Edison extends AppModel {
 
 	public $hasMany = array(
-		'Touch','Temperature'
+		'Touch','Temperature','Photo','Sound'
 	);
 
 	// public $hasOne = array(
@@ -16,7 +16,7 @@ class Edison extends AppModel {
 	//バリデーション
 	public $validate = array(
 		'name' => array(
-			'rule' => 'isUnique',
+			'rule' => array('isUnique'),
 			//'required' => true,
 			'message' => 'その名前は既に使われています。'
 		),
