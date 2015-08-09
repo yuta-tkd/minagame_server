@@ -2,6 +2,55 @@
 <script>
 
 jQuery(function ($) {
+
+
+//Login
+$.ajax({
+  url: '/api/login',
+  type: "POST",
+  data: {'edisonName':'kame01'},
+  dataType : "json",
+  //processData: false,
+  //contentType: false,
+  success : function(response, dataType){
+      console.log('Ajax: ' + dataType);
+      console.log(response);
+      $('#content').append('<p>Login Ajax(POST)成功</p>');
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown){
+      console.log('Ajax: Error!');
+      console.log(XMLHttpRequest);
+      console.log(textStatus);
+      console.log(errorThrown);
+  }
+});
+
+//AllSensor
+$.ajax({
+  url: '/api/allSensor',
+  type: "POST",
+  data: {
+    'edisonName':'kame01',
+    'startTime':'2015-08-08 13:45:30',
+    'duration': 10
+  },
+  dataType : "json",
+  //processData: false,
+  //contentType: false,
+  success : function(response, dataType){
+      console.log('AllSensor');
+      console.log('Ajax: ' + dataType);
+      console.log(response);
+      $('#content').append('<p>AllSensor Ajax(POST)成功</p>');
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown){
+      console.log('Ajax: Error!');
+      console.log(XMLHttpRequest);
+      console.log(textStatus);
+      console.log(errorThrown);
+  }
+});
+
 //Edison
 $.ajax({
   url: '/edisons/kame01.json',
@@ -23,27 +72,27 @@ $.ajax({
   }
 });
 
-$.ajax({
-  url: '/edisons.json',
-  type: "POST",
-  data: {
-    name: 'kame02'
-  },
-  dataType : "json",
-  //processData: false,
-  //contentType: false,
-  success : function(response, dataType){
-      console.log('Ajax: ' + dataType);
-      console.log(response);
-      $('#content').append('<p>Edison Ajax(POST)成功</p>');
-  },
-  error: function(XMLHttpRequest, textStatus, errorThrown){
-      console.log('Ajax: Error!');
-      console.log(XMLHttpRequest);
-      console.log(textStatus);
-      console.log(errorThrown);
-  }
-});
+// $.ajax({
+//   url: '/edisons.json',
+//   type: "POST",
+//   data: {
+//     name: 'kame02'
+//   },
+//   dataType : "json",
+//   //processData: false,
+//   //contentType: false,
+//   success : function(response, dataType){
+//       console.log('Ajax: ' + dataType);
+//       console.log(response);
+//       $('#content').append('<p>Edison Ajax(POST)成功</p>');
+//   },
+//   error: function(XMLHttpRequest, textStatus, errorThrown){
+//       console.log('Ajax: Error!');
+//       console.log(XMLHttpRequest);
+//       console.log(textStatus);
+//       console.log(errorThrown);
+//   }
+// });
 
 //Touch
 $.ajax({
@@ -72,7 +121,7 @@ $.ajax({
   data: {
     edisonName: 'kame01',
     touch: 1,
-    time: '2015-08-08 13:39:30'
+    time: '2015-08-08 13:40:30'
   },
   dataType : "json",
   //processData: false,
