@@ -190,6 +190,53 @@ $('#photo-submit').on('click',function(){
 });
 
 
+//Sound
+$.ajax({
+  url: '/sounds/kame01.json',
+  type: "GET",
+  // data: {'edisonId':'kame01'},
+  // dataType : "json",
+  //processData: false,
+  //contentType: false,
+  success : function(response, dataType){
+      console.log('Ajax: ' + dataType);
+      console.log(response);
+      $('#content').append('<p>Sound Ajax(GET)成功</p>');
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown){
+      console.log('Ajax: Error!');
+      console.log(XMLHttpRequest);
+      console.log(textStatus);
+      console.log(errorThrown);
+  }
+});
+
+$.ajax({
+  url: '/sounds.json',
+  type: "POST",
+  data: {
+    edisonName: 'kame01',
+    sound: 1,
+    time: '2015-08-08 13:39:30'
+  },
+  dataType : "json",
+  //processData: false,
+  //contentType: false,
+  success : function(response, dataType){
+      console.log('Ajax: ' + dataType);
+      console.log(response);
+      $('#content').append('<p>Sound Ajax(POST)成功</p>');
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown){
+      console.log('Ajax: Error!');
+      console.log(XMLHttpRequest);
+      console.log(textStatus);
+      console.log(errorThrown);
+  }
+});
+
+
+
 });
 </script>
 
