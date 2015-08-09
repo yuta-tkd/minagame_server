@@ -35,6 +35,9 @@ class PhotosController extends AppController {
     $data = $this->request->data;
     $edisonName = $data['edisonName'];
 
+    //Log
+    $this->log($data,LOG_DEBUG);
+
     $edison = null;
     $message = 'Error';
     if(!empty($data['edisonName'])){
