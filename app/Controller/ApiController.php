@@ -9,7 +9,10 @@ class ApiController extends AppController {
     $param = $this->request->data;
     $edisonName = $param['edisonName'];
 
+    //log
+    $this->log('login',LOG_DEBUG);
     $this->log($edisonName,LOG_DEBUG);
+
     $check = false;
     if($this->Edison->findByName($edisonName)){
       $check = true;
