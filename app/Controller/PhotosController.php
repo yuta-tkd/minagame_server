@@ -47,19 +47,26 @@ class PhotosController extends AppController {
 
         $file = $_FILES['photo'];
         if(!empty($file) && $file['error'] == 0){
-          $save_path = '/app/webroot/img/edison/photos';
-          $file_name =  md5(uniqid(rand(), true)).'';
+          $save_path = '/app/webroot/edison/photos/';
+          $file_name =  md5(uniqid(rand(), true)).'.jpg';
           $path = ROOT . $save_path .$file_name;
-        }
 
-        $this->Photo->create();
-        $photo = $this->Photo->save(array(
-          'edison_id' => $edisonId,
-          'photo' => $data['photo'],
-          'time' => $data['time']
-        ));
-        if ($photo) {
-          $message = 'Saved';
+          $this->Photo->create();
+          $photo = $this->Photo->save(array(
+            'edison_id' => $edisonId,
+            'photo_name' => $file_name,
+            'photo_path' => FULL_BASE_URL.'/edison/photos/'.$file_name,
+            'time' => $data['time']
+          ));
+
+          if (move_uploaded_file($file['tmp_name'], $path)){
+            $this->log("move file success!", LOG_DEBUG);
+            if ($photo) {
+              $message = 'Saved';
+            }
+          }else{
+            $this->log("move file failure.", LOG_DEBUG);
+          }
         }
       }
     }

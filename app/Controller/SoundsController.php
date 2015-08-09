@@ -44,14 +44,29 @@ class SoundsController extends AppController {
     if(!empty($data['edisonName'])){
       $edisonId = $this->Edison->findByName($edisonName)['Edison']['id'];
       if($edisonId){
-        $this->Sound->create();
-        $sound = $this->Sound->save(array(
-          'edison_id' => $edisonId,
-          'sound' => $data['sound'],
-          'time' => $data['time']
-        ));
-        if ($sound) {
-          $message = 'Saved';
+
+        $file = $_FILES['sound'];
+        if(!empty($file) && $file['error'] == 0){
+          $save_path = '/app/webroot/edison/sounds/';
+          $file_name =  md5(uniqid(rand(), true)).'.wav';
+          $path = ROOT . $save_path .$file_name;
+
+          $this->Sound->create();
+          $sound = $this->Sound->save(array(
+            'edison_id' => $edisonId,
+            'sound_name' => $file_name,
+            'sound_path' => FULL_BASE_URL.'/edison/sounds/'.$file_name,
+            'time' => $data['time']
+          ));
+
+          if (move_uploaded_file($file['tmp_name'], $path)){
+            $this->log("move file success!", LOG_DEBUG);
+            if ($sound) {
+              $message = 'Saved';
+            }
+          }else{
+            $this->log("move file failure.", LOG_DEBUG);
+          }
         }
       }
     }

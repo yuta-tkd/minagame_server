@@ -207,36 +207,36 @@ $.ajax({
   }
 });
 
-$('#photo-submit').on('click',function(){
-  $form = $('#photo_form');
-  var fd = new FormData($form[0]);
-  console.log(fd);
-  $.ajax({
-    url: '/photos.json',
-    type: "POST",
-    data: {
-      edisonName: 'kame01',
-      photo: fd,
-      time: '2015-08-08 13:39:30',
-    },
-    dataType : "json",
-    processData: false,
-    contentType: false,
-    success : function(response, dataType){
-        console.log('Ajax: ' + dataType);
-        console.log(response);
-        $('#content').append('<p>Photo Ajax(POST)成功</p>');
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown){
-        console.log('Ajax: Error!');
-        console.log(XMLHttpRequest);
-        console.log(textStatus);
-        console.log(errorThrown);
-    }
-  });
-
-  return false;
-});
+// $('#photo-submit').on('click',function(){
+//   $form = $('#photo_form');
+//   var fd = new FormData($form[0]);
+//   console.log(fd);
+//   $.ajax({
+//     url: '/photos.json',
+//     type: "POST",
+//     data: {
+//       edisonName: 'kame01',
+//       photo: fd,
+//       time: '2015-08-08 13:39:30',
+//     },
+//     dataType : "json",
+//     processData: false,
+//     contentType: false,
+//     success : function(response, dataType){
+//         console.log('Ajax: ' + dataType);
+//         console.log(response);
+//         $('#content').append('<p>Photo Ajax(POST)成功</p>');
+//     },
+//     error: function(XMLHttpRequest, textStatus, errorThrown){
+//         console.log('Ajax: Error!');
+//         console.log(XMLHttpRequest);
+//         console.log(textStatus);
+//         console.log(errorThrown);
+//     }
+//   });
+//
+//   return false;
+// });
 
 
 //Sound
@@ -260,42 +260,50 @@ $.ajax({
   }
 });
 
-$.ajax({
-  url: '/sounds.json',
-  type: "POST",
-  data: {
-    edisonName: 'kame01',
-    sound: 1,
-    time: '2015-08-08 13:39:30'
-  },
-  dataType : "json",
-  //processData: false,
-  //contentType: false,
-  success : function(response, dataType){
-      console.log('Ajax: ' + dataType);
-      console.log(response);
-      $('#content').append('<p>Sound Ajax(POST)成功</p>');
-  },
-  error: function(XMLHttpRequest, textStatus, errorThrown){
-      console.log('Ajax: Error!');
-      console.log(XMLHttpRequest);
-      console.log(textStatus);
-      console.log(errorThrown);
-  }
-});
+// $.ajax({
+//   url: '/sounds.json',
+//   type: "POST",
+//   data: {
+//     edisonName: 'kame01',
+//     sound: 1,
+//     time: '2015-08-08 13:39:30'
+//   },
+//   dataType : "json",
+//   //processData: false,
+//   //contentType: false,
+//   success : function(response, dataType){
+//       console.log('Ajax: ' + dataType);
+//       console.log(response);
+//       $('#content').append('<p>Sound Ajax(POST)成功</p>');
+//   },
+//   error: function(XMLHttpRequest, textStatus, errorThrown){
+//       console.log('Ajax: Error!');
+//       console.log(XMLHttpRequest);
+//       console.log(textStatus);
+//       console.log(errorThrown);
+//   }
+// });
 
 
 
 });
 </script>
 
-<form id="photo_form" action="/photos.json" method="post" enctype="multipart/form-data">
+<!-- <form id="photo_form" action="/photos.json" method="post" enctype="multipart/form-data">
   <input type="file" name="datafile">
   <input id="photo-submit" type="submit" value="送信">
-</form>
+</form> -->
 
 <form action="/photos.json" method="post" enctype="multipart/form-data">
   <input type="file" name="photo">
+  <input type="hidden" name="edisonName" value="kame01">
+  <input type="hidden" name="time" value="2015-08-08 13:39:30">
+  <input id="photo-submit" type="submit" value="送信">
+</form>
+
+
+<form action="/sounds.json" method="post" enctype="multipart/form-data">
+  <input type="file" name="sound">
   <input type="hidden" name="edisonName" value="kame01">
   <input type="hidden" name="time" value="2015-08-08 13:39:30">
   <input id="photo-submit" type="submit" value="送信">
