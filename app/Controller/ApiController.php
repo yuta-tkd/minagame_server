@@ -41,7 +41,7 @@ class ApiController extends AppController {
     if($edisonId){
 
       $dateTime = new DateTime($startTime);
-      $dateTime->modify('-10 minutes');
+      $dateTime->modify('-'.$duration.' minutes');
       $endTime = $dateTime->format('Y-m-d H:i:s');
 
       //log
