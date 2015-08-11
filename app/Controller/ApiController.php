@@ -50,7 +50,8 @@ class ApiController extends AppController {
       $conditions = array(
         'edison_id' => $edisonId,
         'time >=' => $endTime,
-        'time <=' => $startTime
+        'time <=' => $startTime,
+        'limit' => 1
       );
       $order = array('time' => 'desc');
 
@@ -61,10 +62,10 @@ class ApiController extends AppController {
 
 
       $allSensors = array(
-        'Touches' => $touches,
-        'Temperatures' => $temperatures,
-        'Sounds' => $sounds,
-        'Photos' => $photos
+        'Touches' => $touches['Touch'],
+        'Temperatures' => $temperatures['Temperature'],
+        'Sounds' => $sounds['Sound'],
+        'Photos' => $photos['Photo'],
       );
 
       //$allSensors
@@ -72,8 +73,9 @@ class ApiController extends AppController {
     }
 
     $this->viewClass = 'Json';
-    $this->set(compact('allSensors'));
+    $this->set(array('allSensors'));
     $this->set('_serialize', array('allSensors'));
   }
+
 
 }

@@ -25,33 +25,33 @@ $.ajax({
       console.log(errorThrown);
   }
 });
-
+*/
 //AllSensor
-$.ajax({
-  url: '/api/allSensor',
-  type: "POST",
-  data: {
-    'edisonName':'kame01',
-    'startTime':'2015-08-08 13:45:30',
-    'duration': 10
-  },
-  dataType : "json",
-  //processData: false,
-  //contentType: false,
-  success : function(response, dataType){
-      console.log('AllSensor');
-      console.log('Ajax: ' + dataType);
-      console.log(response);
-      $('#content').append('<p>AllSensor Ajax(POST)成功</p>');
-  },
-  error: function(XMLHttpRequest, textStatus, errorThrown){
-      console.log('Ajax: Error!');
-      console.log(XMLHttpRequest);
-      console.log(textStatus);
-      console.log(errorThrown);
-  }
-});
-
+// $.ajax({
+//   url: '/api/allSensor',
+//   type: "POST",
+//   data: {
+//     'edisonName':'kame01',
+//     'startTime':'2015-08-08 13:45:30',
+//     'duration': 10
+//   },
+//   dataType : "json",
+//   //processData: false,
+//   //contentType: false,
+//   success : function(response, dataType){
+//       console.log('AllSensor');
+//       console.log('Ajax: ' + dataType);
+//       console.log(response);
+//       $('#content').append('<p>AllSensor Ajax(POST)成功</p>');
+//   },
+//   error: function(XMLHttpRequest, textStatus, errorThrown){
+//       console.log('Ajax: Error!');
+//       console.log(XMLHttpRequest);
+//       console.log(textStatus);
+//       console.log(errorThrown);
+//   }
+// });
+/*
 //Edison
 $.ajax({
   url: '/edisons/kame01.json',
