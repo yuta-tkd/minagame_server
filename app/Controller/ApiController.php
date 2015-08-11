@@ -70,18 +70,26 @@ class ApiController extends AppController {
       if(!empty($touches)){
         $touches = $touches['Touch'];
         $touches['check'] = true;
+      }else{
+        $touches['check'] = false;
       }
       if(!empty($temperatures)){
         $temperatures = $temperatures['Temperature'];
         $temperatures['check'] = true;
+      }else{
+        $temperatures['check'] = false;
       }
       if(!empty($sounds)){
         $sounds = $sounds['Sound'];
         $sounds['check'] = true;
+      }else{
+        $sounds['check'] = false;
       }
       if(!empty($photos)){
         $photos = $photos['Photo'];
         $photos['check'] = true;
+      }else{
+        $photos['check'] = false;
       }
 
 
