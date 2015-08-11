@@ -65,6 +65,9 @@ class ApiController extends AppController {
         'Sounds' => $sounds,
         'Photos' => $photos
       );
+
+      //$allSensors
+      $this->log($$allSensors,LOG_DEBUG);
     }
 
     $this->viewClass = 'Json';
