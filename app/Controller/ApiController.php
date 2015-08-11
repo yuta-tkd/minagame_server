@@ -50,22 +50,21 @@ class ApiController extends AppController {
       $conditions = array(
         'edison_id' => $edisonId,
         'time >=' => $endTime,
-        'time <=' => $startTime,
-        'limit' => 1
+        'time <=' => $startTime
       );
       $order = array('time' => 'desc');
 
-      $touches = $this->Touch->find('all', compact('conditions','order'));
-      $temperatures = $this->Temperature->find('all', compact('conditions','order'));
-      $sounds = $this->Sound->find('all', compact('conditions','order'));
-      $photos = $this->Photo->find('all', compact('conditions','order'));
+      $touches = $this->Touch->find('first', compact('conditions','order'));
+      $temperatures = $this->Temperature->find('first', compact('conditions','order'));
+      $sounds = $this->Sound->find('first', compact('conditions','order'));
+      $photos = $this->Photo->find('first', compact('conditions','order'));
 
 
       $allSensors = array(
-        'Touches' => $touches['Touch'],
-        'Temperatures' => $temperatures['Temperature'],
-        'Sounds' => $sounds['Sound'],
-        'Photos' => $photos['Photo'],
+        'Touches' => $touches,
+        'Temperatures' => $temperatures,
+        'Sounds' => $sounds
+        'Photos' => $photos,
       );
 
       //$allSensors
