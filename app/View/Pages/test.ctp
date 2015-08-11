@@ -32,7 +32,7 @@ $.ajax({
   type: "POST",
   data: {
     'edisonName':'kame01',
-    'startTime':'2015-08-11 14:00:30',
+    'startTime':'2015-08-11 13:45:30',
     'duration': 10
   },
   dataType : "json",
@@ -56,7 +56,7 @@ $.ajax({
   type: "POST",
   data: {
     'edisonName':'kame01',
-    'startTime':'2015-08-11 14:00:30',
+    'startTime':'2015-08-08 13:45:30',
     'duration': 1440
   },
   dataType : "json",
