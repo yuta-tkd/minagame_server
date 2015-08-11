@@ -54,10 +54,10 @@ class ApiController extends AppController {
       );
       $order = array('time' => 'desc');
 
-      $touches = $this->Touch->find('all', compact('conditions','order'));
-      $temperatures = $this->Temperature->find('all', compact('conditions','order'));
-      $sounds = $this->Sound->find('all', compact('conditions','order'));
-      $photos = $this->Photo->find('all', compact('conditions','order'));
+      $touches = $this->Touch->find('first', compact('conditions','order'))['Touch'];
+      $temperatures = $this->Temperature->find('first', compact('conditions','order'))['Temperature'];
+      $sounds = $this->Sound->find('first', compact('conditions','order'))['Sound'];
+      $photos = $this->Photo->find('first', compact('conditions','order'))['Photo'];
 
 
       $allSensors = array(
@@ -73,7 +73,7 @@ class ApiController extends AppController {
 
     $this->viewClass = 'Json';
     $this->set(compact('allSensors'));
-    $this->set('_serialize', array('allSensors'));
+    $this->set('_serialize', 'allSensors');
   }
 
 
