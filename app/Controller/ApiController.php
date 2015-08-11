@@ -80,7 +80,7 @@ class ApiController extends AppController {
 
     $this->viewClass = 'Json';
     $this->set(compact('allSensors'));
-    $this->set('_serialize', 'allSensors');
+    $this->set('_serialize', array('allSensors'));
   }
 
 
