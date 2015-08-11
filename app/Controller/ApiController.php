@@ -54,17 +54,18 @@ class ApiController extends AppController {
       );
       $order = array('time' => 'desc');
 
+      $false = false;
       $touches = array(
-        'check' => false;
+        'check' => $false
       );
       $temperatures = array(
-        'check' => false;
+        'check' => $false
       );
       $sounds = array(
-        'check' => false;
+        'check' => $false
       );
       $photos = array(
-        'check' => false;
+        'check' => $false
       );
 
 
