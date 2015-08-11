@@ -54,10 +54,18 @@ class ApiController extends AppController {
       );
       $order = array('time' => 'desc');
 
-      $touches = null;
-      $temperatures = null;
-      $sounds = null;
-      $photos = null;
+      $touches = array(
+        'check' => false;
+      );
+      $temperatures = array(
+        'check' => false;
+      );
+      $sounds = array(
+        'check' => false;
+      );
+      $photos = array(
+        'check' => false;
+      );
 
 
 
@@ -68,15 +76,19 @@ class ApiController extends AppController {
 
       if(!empty($touches)){
         $touches = $touches['Touch'];
+        $touches = $touches['Touch']['check'] = true;
       }
       if(!empty($temperatures)){
         $temperatures = $temperatures['Temperature'];
+        $temperatures = $temperatures['Temperature']['check'] = true;
       }
       if(!empty($sounds)){
         $sounds = $sounds['Sound'];
+        $sounds = $sounds['Sound']['check'] = true;
       }
       if(!empty($photos)){
         $photos = $photos['Photo'];
+        $photos = $photos['Photo']['check'] = true;
       }
 
 
