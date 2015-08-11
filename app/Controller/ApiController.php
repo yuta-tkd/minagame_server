@@ -54,10 +54,24 @@ class ApiController extends AppController {
       );
       $order = array('time' => 'desc');
 
+
       $touches = $this->Touch->find('first', compact('conditions','order'))['Touch'];
       $temperatures = $this->Temperature->find('first', compact('conditions','order'))['Temperature'];
       $sounds = $this->Sound->find('first', compact('conditions','order'))['Sound'];
       $photos = $this->Photo->find('first', compact('conditions','order'))['Photo'];
+
+      if($touches){
+        $touches = null;
+      }
+      if($temperatures){
+        $temperatures = null;
+      }
+      if($sounds){
+        $sounds = null;
+      }
+      if($photos){
+        $photos = null;
+      }
 
 
       $allSensors = array(
