@@ -48,6 +48,7 @@ class ApiController extends AppController {
       $this->log($endTime,LOG_DEBUG);
 
       $conditions = array(
+        'edison_id' => $edisonId,
         'time >=' => $endTime,
         'time <=' => $startTime
       );
