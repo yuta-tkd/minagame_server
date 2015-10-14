@@ -31,6 +31,11 @@ class ApiController extends AppController {
     $startTime = $param['startTime'];
     $duration = $param['duration'];
 
+
+    $dateTime = new DateTime($startTime);
+    $dateTime->setTime($dateTime->format('H'), round($dateTime->format('i'), -1), $dateTime->format('s'));
+    $startTime = $dateTime->format('Y-m-d H:i:s');
+
     //log
     $this->log('allSensor',LOG_DEBUG);
     $this->log($edisonName,LOG_DEBUG);
